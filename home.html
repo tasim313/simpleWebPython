@@ -1,0 +1,45 @@
+$def with(posts)
+
+
+<div class="container">
+    $if session['user'] == None:
+          <h1>Hello CodeWizard</h1>
+    $else:
+       <div class="row">
+           <ul class="sidebar">
+               <li class="active"><a href="a"><span class="mdi mdi-home"></span>Home Feed</a> </li>
+               <li><a href="a"><span class="mdi mdi-account-circle"></span>Profile </a> </li>
+               <li><a href="a"><span class="mdi mdi-account-email"></span>Messages </a> </li>
+               <li><a href="a"><span class="mdi mdi-account-group"></span>Friends </a> </li>
+               <li><a href="a"><span class="mdi mdi-account-communities"></span>Communities </a> </li>
+
+               <li><a href="a"><span class = mdi mdi-boll></span>Notifications</a> </li>
+               <li class="separator"></li>
+               <li><a href="a"><span class="mdi mdi-account-setting"></span>Settings </a> </li>
+               <li><a href="a"><span class="mdi mdi-help-circle"></span>Help </a> </li>
+           </ul>
+       </div>
+
+    <div class="post-box">
+        <form id ="post-activity">
+            <textarea name="content" class ="post-input" placeholder="what's new, session['user']['name']?"></textarea>
+            <button id="post-button" class="btn btn-info btn-raised waves-effect" type="submit"><span class ="mdi mdi-seed"></span></button>
+        </form>
+    </div>
+
+
+    $for post in posts:
+    <div class="post-card">
+        <div class="header">
+            <div class="avatar"></div>
+            <a href="/profile">$posts['user']['name']</a>
+        </div>
+        <div class="content">
+            $post['content']
+        </div>
+        <div class="footer">
+            <button class="btn btn-raised waves-effect btn-default btn-raised btn-like"><span class="ndi ndi-thurb-up-outline"></span></button>
+            <button class="btn btn-raised waves-effect btn-default btn-raised btn-comment"><span class="ndi ndi-comment-text-outline"></span> </button>
+        </div>
+    </div>
+</div>
